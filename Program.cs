@@ -79,11 +79,31 @@
 // }
 int c = 0;
 int secr = 42;
-int pop = 5;
-while(pop != 0){
+int pop = 0;
+while (pop < 5)
+{
     Console.Write("введите число: ");
     c = Convert.ToInt32(Console.ReadLine());
-    if (c != secr && c < secr){
-        
+    if (c == 42)
+    {
+        Console.WriteLine($"Вы угадали число! за {pop} попытки");
+        break;
     }
+    else
+    {
+        if (c < secr)
+        {
+            Console.WriteLine("Больше");
+            pop++;
+        }
+        else if (c > secr)
+        {
+            Console.WriteLine("Меньше");
+            pop++;
+        }
+    }
+}
+if (pop == 5)
+{
+    Console.WriteLine("вы проиграли число было 42");
 }
